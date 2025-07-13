@@ -1,11 +1,14 @@
 const tagmap = {
   ti: "title",
+  ar: "artist",
   al: "album",
-  au: "author",
-  lr: "lyricist",
-  by: "author",
-  re: "tool",
-  ve: "version",
+  au: "author", // author of the song
+  lr: "lyricist", // lyricist of the song
+  by: "author", // author of this LRC file
+  re: "tool", // name of tool
+  ve: "version", // the version of tool
+  lang: "language", // extension. languge of lyrics
+  genre: "genre", // extension. genre of the song
 };
 
 const parseTag = (s) => {
@@ -29,7 +32,7 @@ export const formatTime = (t) => {
   const fix2 = n => n < 10 ? "0" + n : n;
   const m = Math.floor(t / (60 * 1000));
   const s = Math.floor((t / 1000) % 60);
-  const msec = t / 10 % 100;
+  const msec = Math.floor(t / 10) % 100;
   return fix2(m) + ":" + fix2(s) + "." + fix2(msec);
 };
 
@@ -52,7 +55,7 @@ export class LRC {
         }
       }
     }
-    res.lyrics = lyrics;
+    if (lyrics.length) res.lyrics = lyrics;
     return res;
   }
   static stringify(lrc) {
@@ -69,10 +72,12 @@ export class LRC {
       const val = lrc[name];
       ss.push(`[${tag}: ${val}]`);
     }
-    ss.push("");
     const lyrics = lrc.lyrics;
-    for (const lyric of lyrics) {
-      ss.push(`[${formatTime(lyric.t)}] ${lyric.lyrics}`);
+    if (lyrics) {
+      ss.push("");
+      for (const lyric of lyrics) {
+        ss.push(`[${formatTime(lyric.t)}] ${lyric.lyrics}`);
+      }
     }
     return ss.join("\n") + "\n";
   }

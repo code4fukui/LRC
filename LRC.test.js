@@ -37,3 +37,11 @@ Deno.test("stringify", () => {
 [01:01.00] c
 `);
 });
+Deno.test("no lyrics", () => {
+  t.assertEquals(LRC.parse(`[ti: title by name]`), {
+    title: "title by name",
+  })
+  t.assertEquals(LRC.stringify({
+    title: "title by name",
+  }), `[ti: title by name]\n`);
+});
