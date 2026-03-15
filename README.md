@@ -1,5 +1,7 @@
 # LRC
 
+> 日本語のREADMEはこちらです: [README.ja.md](README.ja.md)
+
 LRC is a parse/stringify library for the format to describe the lyrics of music.
 
 ## Usage
@@ -14,7 +16,7 @@ const lrc = `
 [00:01.00] b
 [01:01.00] c
 `;
-conosle.log(LRC.parse(lrc));
+console.log(LRC.parse(lrc));
 
 const data = {
   title: "title by name",
