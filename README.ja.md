@@ -1,9 +1,15 @@
 # LRC
 
-LRC is a parse/stringify library for the format to describe the lyrics of music.
+LRCは音楽の歌詞を記述するための構文解析ライブラリです。
 
-## Usage
+## デモ
+[LRCの使用例](https://code4fukui.github.io/LRC/)
 
+## 機能
+- LRC形式の歌詞ファイルの解析と生成
+- 時間情報付きの歌詞データの管理
+
+## 使い方
 ```js
 import { LRC } from "https://code4fukui.github.io/LRC/LRC.js";
 
@@ -14,7 +20,7 @@ const lrc = `
 [00:01.00] b
 [01:01.00] c
 `;
-conosle.log(LRC.parse(lrc));
+console.log(LRC.parse(lrc));
 
 const data = {
   title: "title by name",
@@ -27,10 +33,5 @@ const data = {
 console.log(LRC.stringify(data));
 ```
 
-## Reference
-
-- [LRC (file format)](https://en.wikipedia.org/wiki/LRC_(file_format))
-
-## License
-
+## ライセンス
 MIT License
