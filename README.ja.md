@@ -1,10 +1,8 @@
 # LRC
 
-> 日本語のREADMEはこちらです: [README.ja.md](README.ja.md)
+LRCは、音楽の歌詞を記述するフォーマットをパース／文字列化するライブラリです。
 
-LRC is a parse/stringify library for the format to describe the lyrics of music.
-
-## Usage
+## 使い方
 
 ```js
 import { LRC } from "https://code4fukui.github.io/LRC/LRC.js";
@@ -29,10 +27,10 @@ const data = {
 console.log(LRC.stringify(data));
 ```
 
-## Reference
+## 参考
 
-- [LRC (file format)](https://en.wikipedia.org/wiki/LRC_(file_format))
+- [LRC (ファイルフォーマット)](https://en.wikipedia.org/wiki/LRC_(file_format))
 
-## License
+## ライセンス
 
-MIT License — see [LICENSE](LICENSE).
+MIT License — 詳細は[LICENSE](LICENSE)を参照してください。
